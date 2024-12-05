@@ -1,0 +1,256 @@
+@media only screen and (max-width: 768px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    color: #333;
+  }
+  .App .container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+  .logo img {
+    width: 145px;
+    height: 47px;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  nav ul li {
+    margin-left: 20px;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  .hero {
+    position: relative;
+    background-image: url("hero-image.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: left;
+    padding: 100px 0;
+    border-radius: 35px;
+    color: white;
+    z-index: 1;
+    margin-top: 50px;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    background-image: inherit;
+    background-size: inherit;
+    background-position: inherit;
+    filter: brightness(30%);
+    z-index: -1;
+  }
+  .hero h1 {
+    font-size: 48px;
+    color: white;
+    text-align: left;
+    padding: 15px;
+  }
+  .titreMobile {
+    display: block;
+  }
+  .titreDesk {
+    display: none;
+  }
+  .parent-container {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1440px;
+  }
+  .location-grid {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    justify-items: center;
+    background-color: #F6F6F6;
+    border-radius: 25px;
+    padding: 25px;
+  }
+  .location-card {
+    position: relative;
+    background-color: #ff6060;
+    color: white;
+    padding: 20px;
+    height: 340px;
+    width: 100%;
+    max-width: 340px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .location-card p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  .location-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+  }
+  footer p {
+    margin: 0;
+  }
+  .logement-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  .logement-gallery {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logement-image {
+    width: 100%;
+    max-width: 1440px;
+    max-height: 440px;
+    height: 440px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .image-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    font-size: 14px;
+  }
+  .gallery-arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .left-arrow {
+    left: 10px;
+  }
+  .right-arrow {
+    right: 10px;
+  }
+  .logement-info {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logement-details {
+    flex-grow: 1;
+  }
+  .logement-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6060;
+  }
+  .logement-location {
+    font-size: 16px;
+    color: #7a7a7a;
+  }
+  .tags {
+    margin-top: 10px;
+  }
+  .tag {
+    display: inline-block;
+    background-color: #ff6060;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  .host-info {
+    display: flex;
+    align-items: center;
+  }
+  .host-name {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #7a7a7a;
+  }
+  .host-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+  }
+  .rating {
+    margin-top: 10px;
+  }
+  .star {
+    font-size: 20px;
+    color: #e3e3e3;
+  }
+  .star.filled {
+    color: #ff6060;
+  }
+  .accordion-container {
+    display: flex;
+    margin-top: 20px;
+  }
+  .accordion-item {
+    flex: 1;
+    margin-right: 10px;
+  }
+  .accordion-item:last-child {
+    margin-right: 0;
+  }
+  .accordion-title {
+    width: 100%;
+    background-color: #ff6060;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .accordion-content {
+    background-color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+}/*# sourceMappingURL=Mobile.css.map */

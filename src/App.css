@@ -1,38 +1,426 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@media only screen and (min-width: 769px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    color: #333;
+  }
+  .app__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+  .header__logo img {
+    width: 210px;
+    height: 68px;
+  }
+  .header__nav-list {
+    list-style: none;
+    display: flex;
+  }
+  .header__nav-item {
+    margin-left: 20px;
+  }
+  .header__nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  .header__nav-link.is-active {
+    text-decoration: underline;
+    color: #333;
+  }
+  .hero {
+    position: relative;
+    background-image: url("hero-image.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    border-radius: 35px;
+    color: white;
+    z-index: 1;
+    margin-top: 50px;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    background-image: inherit;
+    background-size: inherit;
+    background-position: inherit;
+    filter: brightness(30%);
+    z-index: -1;
+  }
+  .hero__title--mobile {
+    display: none;
+  }
+  .hero__title--desktop {
+    display: block;
+    font-size: 48px;
+    color: white;
+  }
+  .parent-container {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1440px;
+  }
+  .location__grid {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    justify-items: center;
+    background-color: #F6F6F6;
+    border-radius: 25px;
+    padding: 25px;
+  }
+  .location__card {
+    position: relative;
+    background-color: #ff6060;
+    color: white;
+    padding: 20px;
+    height: 340px;
+    width: 100%;
+    max-width: 340px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .location__card-image {
+    width: 100%;
+    border-radius: 8px;
+    min-height: 240px;
+    object-fit: cover;
+  }
+  .location__card-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  .footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+  }
+  .footer__text {
+    margin: 0;
+  }
+  .footer__text--mobile {
+    display: none;
+  }
+  .footer__text--desktop {
+    display: block;
+  }
+  .logement__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  .logement__gallery {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logement__gallery-image {
+    width: 100%;
+    max-width: 1440px;
+    height: 440px;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+  .logement__gallery-counter {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .logement__gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 5em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .logement__gallery-arrow--left {
+    left: 10px;
+  }
+  .logement__gallery-arrow--right {
+    right: 10px;
+  }
+  .logement__info {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logement__details {
+    flex: 1;
+    margin-right: 20px;
+  }
+  .logement__title {
+    font-size: 24px;
+    font-family: montserrat;
+    font-weight: medium;
+    color: #ff6060;
+    margin-bottom: 10px;
+  }
+  .logement__location {
+    font-size: 16px;
+    color: black;
+    margin-bottom: 10px;
+    font-family: montserrat;
+    font-weight: lighter;
+  }
+  .logement__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .logement__tag {
+    display: inline-block;
+    background-color: #ff6060;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 13px;
+    padding: 5px 15px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .logement__host {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .logement__host-name {
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    text-align: right;
+    color: #ff6060;
+    margin-bottom: 10px;
+  }
+  .logement__host-name-part {
+    display: block;
+  }
+  .logement__host-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 15px;
+    background-color: #d3d3d3;
+  }
+  .logement__rating {
+    display: flex;
+    justify-content: center;
+  }
+  .logement__rating-star {
+    font-size: 24px;
+    color: #FF6060;
+    margin: 0 5px;
+  }
+  .logement__rating-star--filled {
+    color: #ff6060;
+  }
+  .aboutimg {
+    position: relative;
+    background-image: url("../src/About-image.png");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    border-radius: 35px;
+    color: white;
+    z-index: 1;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .aboutimg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    background-image: inherit;
+    background-size: inherit;
+    background-position: inherit;
+    filter: brightness(60%);
+    z-index: -1;
+  }
+  .info-column__accordion {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 auto;
+  }
+  .info-column__accordion-item {
+    background-color: #ff6060; /* Red background */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Ensures content doesn't spill out */
+    height: auto; /* Ensures dynamic height for content */
+    transition: all 0.3s ease; /* Smooth transition for opening/closing */
+  }
+  .info-column__accordion-header {
+    padding: 20px; /* Increases padding to make the header look filled */
+    background-color: #ff6060; /* Same red background as item */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    max-height: 52px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .info-column__accordion-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(-135deg);
+    transition: transform 0.3s ease;
+  }
+  .info-column__accordion-icon.rotate {
+    transform: rotate(45deg);
+  }
+  .info-column__accordion-content {
+    max-height: 0; /* Initially collapsed */
+    overflow: hidden; /* Hide overflowing content */
+    padding: 0 15px; /* Set horizontal padding */
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: max-height 0.3s ease, padding 0.3s ease; /* Smooth animation */
+  }
+  .info-column__accordion-content.open {
+    max-height: 500px; /* Set a large max height for expanded state */
+    padding: 15px; /* Add vertical padding when expanded */
+  }
+  @keyframes slideDown {
+    from {
+      max-height: 0;
+      opacity: 0;
+    }
+    to {
+      max-height: 500px;
+      opacity: 1;
+    }
+  }
+  .info-column__accordion-content.open {
+    animation: slideDown 0.3s ease;
+  }
+  .info-row__accordion {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Ensures equal spacing between items */
+    gap: 20px; /* Adds spacing between accordions */
+    margin: 0;
+    margin-top: 15px;
+  }
+  .info-row__accordion-item {
+    background-color: #ff6060; /* Red background */
+    border-radius: 12px; /* Rounded corners */
+    overflow: hidden; /* Ensures content doesn't spill out */
+    height: auto; /* Ensures dynamic height for content */
+    flex: 1 1 0; /* Allow equal width for all items, flexible with shrinking */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    max-width: 630px; /* Ensures items don't exceed this width */
+  }
+  .info-row__accordion-header {
+    padding: 20px; /* Adjust padding for better spacing */
+    background-color: #ff6060; /* Same red background as item */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    width: 100%; /* Ensures the header spans the full accordion */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .info-row__accordion-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0; /* Creates arrow shape */
+    transform: rotate(-135deg);
+    transition: transform 0.3s ease;
+  }
+  .info-row__accordion-icon.rotate {
+    transform: rotate(45deg); /* Rotates arrow when accordion is open */
+  }
+  .info-row__accordion-content {
+    max-height: 0; /* Collapsed state */
+    overflow: hidden; /* Ensures hidden content is not visible */
+    padding: 0; /* Remove all padding when collapsed */
+    background-color: transparent; /* Fully collapse with no visible background */
+    color: transparent; /* Hide text when collapsed */
+    font-size: 16px;
+    line-height: 1.5;
+    transition: max-height 0.3s ease, padding 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+  }
+  .info-row__accordion-content.open {
+    max-height: 500px; /* Expanded state with sufficient height for content */
+    padding: 15px; /* Add padding for visible content */
+    background-color: #f9f9f9; /* Light background for expanded content */
+    color: #333; /* Show text when expanded */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*# sourceMappingURL=App.css.map */
