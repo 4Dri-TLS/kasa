@@ -4,6 +4,8 @@ import logements from "../Data/logements.json";
 import Accordion from "./Accordion";
 import "../App.scss";
 import "../Mobile.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function Logement() {
   const { id } = useParams();
@@ -88,7 +90,10 @@ function Logement() {
 
         <div className="logement__host">
           <div className="logement__host-info">
-            <p className="logement__host-name">{logement.host.name}</p>
+          <p className="logement__host-name">
+            {logement.host.name.split(" ")[0]} <br />
+            {logement.host.name.split(" ")[1]}
+          </p>
             <div
               className="logement__host-picture"
               style={{ backgroundImage: `url(${logement.host.picture})` }}
@@ -102,7 +107,7 @@ function Logement() {
                   i < logement.rating ? "logement__star--filled" : ""
                 }`}
               >
-                ★
+                <FontAwesomeIcon icon={faStar} />
               </span>
             ))}
           </div>
