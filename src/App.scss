@@ -48,7 +48,9 @@
 			&-link {
                 text-decoration: none;
                 color: #333;
-                font-weight: bold;
+				font-family: montserrat;
+                font-weight: 500;
+				font-size: 24px;
             }
             &-link.is-active {
                 text-decoration: underline;
