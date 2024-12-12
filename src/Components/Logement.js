@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import logements from '../Data/logements.json';
-import Accordion from './Accordion';
-import '../App.scss';
-import '../Mobile.scss';
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import logements from "../Data/logements.json";
+import Accordion from "./Accordion";
+import "../App.scss";
+import "../Mobile.scss";
 
 function Logement() {
   const { id } = useParams();
-  const logement = logements.find(item => item.id === id);
+  const logement = logements.find((item) => item.id === id);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -27,15 +27,19 @@ function Logement() {
     );
   };
 
-  const accordionData = [
+  // Data for two separate accordion sections
+  const accordionDataDescription = [
     {
-      title: 'Description',
+      title: "Description",
       content: logement.description,
     },
+  ];
+
+  const accordionDataEquipments = [
     {
-      title: 'Équipements',
+      title: "Équipements",
       content: (
-        <ul>
+        <ul className="noDecoration">
           {logement.equipments.map((equipment, index) => (
             <li key={index}>{equipment}</li>
           ))}
@@ -83,29 +87,36 @@ function Logement() {
         </div>
 
         <div className="logement__host">
-  <div className="logement__host-info">
-    <p className="logement__host-name">{logement.host.name}</p>
-    <div
-      className="logement__host-picture"
-      style={{ backgroundImage: `url(${logement.host.picture})` }}
-    ></div>
-  </div>
-  <div className="logement__rating">
-    {[...Array(5)].map((_, i) => (
-      <span
-        key={i}
-        className={`logement__star ${
-          i < logement.rating ? 'logement__star--filled' : ''
-        }`}
-      >
-        ★
-      </span>
-    ))}
-  </div>
-</div>
-</div>
+          <div className="logement__host-info">
+            <p className="logement__host-name">{logement.host.name}</p>
+            <div
+              className="logement__host-picture"
+              style={{ backgroundImage: `url(${logement.host.picture})` }}
+            ></div>
+          </div>
+          <div className="logement__rating">
+            {[...Array(5)].map((_, i) => (
+              <span
+                key={i}
+                className={`logement__star ${
+                  i < logement.rating ? "logement__star--filled" : ""
+                }`}
+              >
+                ★
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
 
-      <Accordion data={accordionData} layout="row" />
+      <div className="accordion-wrapper">
+        <div>
+          <Accordion data={accordionDataDescription} layout="column"/>
+        </div>
+        <div>
+          <Accordion data={accordionDataEquipments} layout="column"/>
+        </div>
+      </div>
     </div>
   );
 }

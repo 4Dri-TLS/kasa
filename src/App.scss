@@ -26,7 +26,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 20px 0;
+		padding: 20px;
 	
 		&__logo {
 			img {
@@ -273,7 +273,7 @@
 	  
 		&__host {
 			display: flex;
-			flex-direction: row; 
+			flex-direction: column; 
 			align-items: center;
 			text-align: center;
 			margin-top: 20px;
@@ -288,6 +288,11 @@
 			  &-part {
 				display: block; 
 			  }
+			}
+			&-info {
+			display: flex;
+			flex-direction: row; 
+			align-items: center;
 			}
 		
 			&-picture {
@@ -304,15 +309,15 @@
 		  &__rating {
 			display: flex;
 			justify-content: center;
-		
-			&-star {
-			  font-size: 24px; 
-			  color: #FF6060; 
-			  margin: 0 5px; 
-		
-			  &--filled {
-				color: #ff6060; 
-			  }
+		  }
+		  &__star {
+			font-size: 24px; 
+			font-weight: bolder;
+			color: #E3E3E3; 
+			margin: 0 5px; 
+	  
+			&--filled {
+			  color: #ff6060; 
 			}
 		  }
 	}
@@ -358,16 +363,16 @@
   }
   
   .info-column__accordion-item {
-	background-color: #ff6060; /* Red background */
-	border-radius: 5px; /* Rounded corners */
-	overflow: hidden; /* Ensures content doesn't spill out */
-	height: auto; /* Ensures dynamic height for content */
-	transition: all 0.3s ease; /* Smooth transition for opening/closing */
+	background-color: #ff6060; 
+	border-radius: 5px; 
+	overflow: hidden; 
+	height: auto;
+	transition: all 0.3s ease;
   }
   
   .info-column__accordion-header {
-	padding: 20px; /* Increases padding to make the header look filled */
-	background-color: #ff6060; /* Same red background as item */
+	padding: 20px; 
+	background-color: #ff6060;
 	color: white;
 	font-size: 18px;
 	font-weight: bold;
@@ -398,19 +403,19 @@
   }
   
   .info-column__accordion-content {
-	max-height: 0; /* Initially collapsed */
-	overflow: hidden; /* Hide overflowing content */
-	padding: 0 15px; /* Set horizontal padding */
+	max-height: 0; 
+	overflow: hidden; 
+	padding: 0 15px;
 	background-color: #f9f9f9;
 	color: #333;
 	font-size: 16px;
 	line-height: 1.5;
-	transition: max-height 0.3s ease, padding 0.3s ease; /* Smooth animation */
+	transition: max-height 0.3s ease, padding 0.3s ease; 
   }
   
   .info-column__accordion-content.open {
-	max-height: 500px; /* Set a large max height for expanded state */
-	padding: 15px; /* Add vertical padding when expanded */
+	max-height: 500px; 
+	padding: 15px; 
   }
 
   // Animation ouverture accordéon
@@ -431,33 +436,32 @@
 
 
 // Accordéon page Logement (en row)
-.info-row__accordion {
-	width: 100%;
+.accordion-wrapper {
 	display: flex;
-	justify-content: space-between; /* Ensures equal spacing between items */
-	gap: 20px; /* Adds spacing between accordions */
+	flex-direction: row;
+	gap: 20px; 
+	width: 100%;
+	justify-content: space-between; 
+	align-items: flex-start; 
 	margin: 0;
 	margin-top: 15px;
-}
-
-.info-row__accordion-item {
-	background-color: #ff6060; /* Red background */
-	border-radius: 12px; /* Rounded corners */
-	overflow: hidden; /* Ensures content doesn't spill out */
-	height: auto; /* Ensures dynamic height for content */
-	flex: 1 1 0; /* Allow equal width for all items, flexible with shrinking */
-	transition: all 0.3s ease; /* Smooth transition for hover effects */
-	max-width: 630px; /* Ensures items don't exceed this width */
-}
-
-.info-row__accordion-header {
-	padding: 20px; /* Adjust padding for better spacing */
-	background-color: #ff6060; /* Same red background as item */
+  }
+  
+  .accordion-wrapper > div {
+	flex: 1; 
+	max-width: 48%; 
+  }
+  
+  .info-row__accordion-item {
+	width: 100%; 
+  }
+  
+  .info-row__accordion-header {
+	padding: 15px 20px; 
+	background-color: #ff6060; 
 	color: white;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
-	text-align: left;
-	width: 100%; /* Ensures the header spans the full accordion */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -465,37 +469,81 @@
 	border: none;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-}
+  }
+  
+  .info-row__accordion-content {
+	max-height: 0; 
+	overflow: hidden;
+	padding: 0;
+	background-color: #f9f9f9; 
+	color: #333; 
+	font-size: 14px;
+	line-height: 1.5;
+	border-radius: 0 0 5px 5px;
+	transition: max-height 0.3s ease, padding 0.3s ease;
+  }
 
-.info-row__accordion-icon {
+  .noDecoration {
+	list-style:none;
+  }
+  
+  .info-row__accordion-content.open {
+	max-height: 300px; 
+	padding: 10px 15px;
+  }
+  
+  .info-row__accordion-icon {
 	display: inline-block;
 	width: 12px;
 	height: 12px;
 	border: solid white;
-	border-width: 0 3px 3px 0; /* Creates arrow shape */
+	border-width: 0 3px 3px 0; 
 	transform: rotate(-135deg);
 	transition: transform 0.3s ease;
-}
-
-.info-row__accordion-icon.rotate {
-	transform: rotate(45deg); /* Rotates arrow when accordion is open */
-}
-
-.info-row__accordion-content {
-	max-height: 0; /* Collapsed state */
-	overflow: hidden; /* Ensures hidden content is not visible */
-	padding: 0; /* Remove all padding when collapsed */
-	background-color: transparent; /* Fully collapse with no visible background */
-	color: transparent; /* Hide text when collapsed */
-	font-size: 16px;
-	line-height: 1.5;
-	transition: max-height 0.3s ease, padding 0.3s ease, color 0.3s ease, background-color 0.3s ease;
   }
   
-  .info-row__accordion-content.open {
-	max-height: 500px; /* Expanded state with sufficient height for content */
-	padding: 15px; /* Add padding for visible content */
-	background-color: #f9f9f9; /* Light background for expanded content */
-	color: #333; /* Show text when expanded */
+  .info-row__accordion-icon.rotate {
+	transform: rotate(45deg); 
+  }
+
+
+
+  // PAGE ERREUR 404
+
+  .error-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 71vh;
+	font-family: 'Arial', sans-serif;
+	background-color: #ffffff;
+  
+	.error-code {
+	  font-size: 299px;
+	  font-family: montserrat;
+	  font-weight: bold;
+	  color: #ff6b6b;
+	  margin: 0;
+	}
+  
+	.error-message {
+	  font-size: 1.5rem;
+	  color: #444;
+	  margin: 1rem 0;
+	}
+  
+	.home-link {
+	  font-size: 1rem;
+	  color: #007bff;
+	  text-decoration: none;
+	  border-bottom: 1px solid transparent;
+	  padding-bottom: 2px;
+  
+	  &:hover {
+		border-color: #007bff;
+	  }
+	}
   }
 }
