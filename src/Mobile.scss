@@ -178,6 +178,7 @@
 .logement {
     &__container {
       max-width: 768px;
+      height: 1050px;
       margin: 0 auto;
       font-family: Arial, sans-serif;
     }
@@ -190,7 +191,7 @@
   
       &-image {
         width: 100%;
-        max-width: 1440px;
+        max-width: 768px;
         max-height: 255px;
         border-radius: 10px;
         object-fit: cover;
@@ -319,6 +320,9 @@
       }
 }
 
+.a-propos {
+    height :1000px;
+}
 
 // Image à propos
 .aboutimg {

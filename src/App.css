@@ -138,6 +138,7 @@
   }
   .logement__container {
     max-width: 1440px;
+    height: 1400px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -267,6 +268,9 @@
   }
   .logement__star--filled {
     color: #ff6060;
+  }
+  .a-propos {
+    height: 1350px;
   }
   .aboutimg {
     position: relative;

@@ -28,7 +28,7 @@ function Info() {
   ];
 
   return (
-    <main>
+    <main className='a-propos'>
       {/* Hero */}
       <section className="aboutimg">
       </section>
