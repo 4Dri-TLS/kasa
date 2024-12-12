@@ -65,7 +65,7 @@
     background-image: inherit;
     background-size: inherit;
     background-position: inherit;
-    filter: brightness(30%);
+    filter: brightness(40%);
     z-index: -1;
   }
   .hero__title--mobile {
